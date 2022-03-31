@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3410</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+</head>
+<body>
+<p id="title">다중 문자 치환 암호화 : 쌍자치환</p>
+
+<div id="table">
+    <p>암호판</p>
+
+    <table border="1px" id="password_plate">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div id="input">
+    <form autocomplete="off">
+        <table id="input_table">
+            <tr>
+                <td class="text">암호키</td>
+                <td class="input_text">
+                    <input type="text" id="encryption_key" name="encryption_key" placeholder="암호키를 입력하세요">
+                </td>
+            </tr>
+            <tr>
+                <td class="text">평&nbsp;&nbsp;&nbsp;문</td>
+                <td class="input_text">
+                    <input type="text" id="plain_text" name="plain_text" placeholder="평문을 입력하세요">
+                </td>
+            </tr>
+            <tr>
+                <td class="text">암호문</td>
+                <td class="input_text">
+                    <input type="text" id="cryptogram" name="cryptogram">
+                </td>
+            </tr>
+            <tr>
+                <td class="text">복호문</td>
+                <td class="input_text">
+                    <input type="text" id="decrypted_text" name="decrypted_text">
+                </td>
+            </tr>
+        </table>
+
+        <div id="botton">
+            <button id="loading" type="button" onclick="loading();">불러오기</button>
+            <button id="result" type="button" onclick="result();">결과보기</button>
+            <button id="reset" type="button" onclick="reset();">초기화</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -12,85 +12,85 @@
     <script src="index.js"></script>
 </head>
 <body>
-<p id="title">다중 문자 치환 암호화 : 쌍자치환</p>
+    <p id="title">다중 문자 치환 암호화 : 쌍자치환</p>
 
-<div id="table">
-    <p>암호판</p>
-
-    <table border="1px" id="password_plate">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-</div>
-
-<div id="input">
     <form autocomplete="off">
-        <table id="input_table">
-            <tr>
-                <td class="text">암호키</td>
-                <td class="input_text">
-                    <input type="text" id="encryption_key" name="encryption_key" placeholder="암호키를 입력하세요">
-                </td>
-            </tr>
-            <tr>
-                <td class="text">평&nbsp;&nbsp;&nbsp;문</td>
-                <td class="input_text">
-                    <input type="text" id="plain_text" name="plain_text" placeholder="평문을 입력하세요">
-                </td>
-            </tr>
-            <tr>
-                <td class="text">암호문</td>
-                <td class="input_text">
-                    <input type="text" id="cryptogram" name="cryptogram">
-                </td>
-            </tr>
-            <tr>
-                <td class="text">복호문</td>
-                <td class="input_text">
-                    <input type="text" id="decrypted_text" name="decrypted_text">
-                </td>
-            </tr>
-        </table>
+        <div id="table">
+            <p>암호판</p>
 
-        <div id="botton">
-            <button id="loading" type="button" onclick="loading();">불러오기</button>
-            <button id="result" type="button" onclick="result();">결과보기</button>
-            <button id="reset" type="button" onclick="reset();">초기화</button>
+            <table border="1px" id="password_plate">
+                <tr>
+                    <td><input type="text" class="password" name="p1" readonly></td>
+                    <td><input type="text" class="password" name="p2" readonly></td>
+                    <td><input type="text" class="password" name="p3" readonly></td>
+                    <td><input type="text" class="password" name="p4" readonly></td>
+                    <td><input type="text" class="password" name="p5" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="password" name="p6" readonly></td>
+                    <td><input type="text" class="password" name="p7" readonly></td>
+                    <td><input type="text" class="password" name="p8" readonly></td>
+                    <td><input type="text" class="password" name="p9" readonly></td>
+                    <td><input type="text" class="password" name="p10" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="password" name="p11" readonly></td>
+                    <td><input type="text" class="password" name="p12" readonly></td>
+                    <td><input type="text" class="password" name="p13" readonly></td>
+                    <td><input type="text" class="password" name="p14" readonly></td>
+                    <td><input type="text" class="password" name="p15" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="password" name="p16" readonly></td>
+                    <td><input type="text" class="password" name="p17" readonly></td>
+                    <td><input type="text" class="password" name="p18" readonly></td>
+                    <td><input type="text" class="password" name="p19" readonly></td>
+                    <td><input type="text" class="password" name="p20" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="password" name="p21" readonly></td>
+                    <td><input type="text" class="password" name="p22" readonly></td>
+                    <td><input type="text" class="password" name="p23" readonly></td>
+                    <td><input type="text" class="password" name="p24" readonly></td>
+                    <td><input type="text" class="password" name="p25" readonly></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="input">
+            <table id="input_table">
+                <tr>
+                    <td class="text">암호키</td>
+                    <td class="input_text">
+                        <input type="text" id="encryption_key" name="encryption_key" placeholder="암호키를 입력하세요">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">평&nbsp;&nbsp;&nbsp;문</td>
+                    <td class="input_text">
+                        <input type="text" id="plain_text" name="plain_text" placeholder="평문을 입력하세요">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">암호문</td>
+                    <td class="input_text">
+                        <input type="text" id="cryptogram" name="cryptogram">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">복호문</td>
+                    <td class="input_text">
+                        <input type="text" id="decrypted_text" name="decrypted_text">
+                    </td>
+                </tr>
+            </table>
+
+            <div id="button">
+                <button id="loading" type="button" onclick="loading_f();">불러오기</button>
+                <button id="result" type="button" onclick="result_f();">결과보기</button>
+                <input id="reset" type="reset" value="초기화">
+            </div>
         </div>
     </form>
-</div>
 </body>
 </html>

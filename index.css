@@ -24,60 +24,72 @@ body{
     margin-top:50px;
     margin-left:230px;
 }
-#table p{
-    width:100%;
-    height:50px;
-    float:left;
-    font-size:17pt;
-}
+    #table p{
+        width:100%;
+        height:50px;
+        float:left;
+        font-size:17pt;
+    }
 
-#password_plate{
-    width:500px;
-    height:500px;
-    float:left;
-    background-color:rgb(240, 240, 240);
-}
+        #password_plate{
+            width:500px;
+            height:500px;
+            float:left;
+            background-color:rgb(240, 240, 240);
+        }
+            .password{
+                width:120px;
+                height:120px;
+                font-size:20pt;
+                text-align:center;
+                border:none;
+                background-color:transparent;
+            }
 
-#input{
-    width:50%;
-    height:100%;
-    float:left;
-    margin-top:90px;
-}
-#input tr{
-    width:530px;
-    height:50px;
-}
+        #input{
+            width:50%;
+            height:100%;
+            float:left;
+            margin-top:90px;
+        }
+            #input tr{
+                width:530px;
+                height:50px;
+            }
 
-#input td{
-    margin-bottom:40px;
-}
+                #input td{
+                    margin-bottom:40px;
+                }
 
-.text{
-    width:120px;
-    height:50px;
-    float:left;
-    font-size:17pt;
-}
+                .text{
+                    width:120px;
+                    height:50px;
+                    float:left;
+                    font-size:17pt;
+                }
 
-.input_text{
-    width:400px;
-    height:50px;
-    float:left;
-    font-size:17pt;
-}
-.input_text input{
-    width:100%;
-    height:100%;
-    font-size:12pt;
-    line-height:50px;
-}
+            .input_text{
+                width:400px;
+                height:50px;
+                float:left;
+                font-size:17pt;
+            }
 
-input:focus{
-    outline:none;
-}
+                .input_text input{
+                    width:100%;
+                    height:100%;
+                    padding-left:10px;
+                    font-size:12pt;
+                    line-height:50px;
+                    border:none;
+                    background-color:rgb(240, 240, 240);
+                }
 
-#botton{
+        input:focus{
+            outline:none;
+        }
+
+#button{
     width:500px;
     height:50px;
     float:left;
@@ -85,25 +97,31 @@ input:focus{
     margin-left:342px;
     position:relative;
 }
-button{
-    margin-right:47px;
-    font-size:16pt;
-    border:1px solid black;
-    border-radius:3px;
-    cursor:pointer;
-    background-color:rgb(240, 240, 240);
-}
-#loading{
-    width:110px;
-    height:45px;
-}
+    button{
+        margin-right:47px;
+        font-size:16pt;
+        border:1px solid black;
+        border-radius:3px;
+        cursor:pointer;
+        background-color:rgb(240, 240, 240);
+    }
+        #loading{
+            width:110px;
+            height:45px;
+        }
 
-#result{
-    width:110px;
-    height:45px;
-}
+        #result{
+            width:110px;
+            height:45px;
+        }
 
-#reset{
-    width:77px;
-    height:45px;
-}
+        #reset{
+            width:100px;
+            height:45px;
+            margin-right:47px;
+            font-size:16pt;
+            border:1px solid black;
+            border-radius:3px;
+            cursor:pointer;
+            background-color:rgb(240, 240, 240);
+        }

@@ -1,9 +1,13 @@
-// 불러오기 함수
+// 불러오기
 function loading_f(){
 
 }
 
-// 결과보기 함수
+// 결과보기
 function result_f(){
+
+}
+// 팝업 창 닫기
+function close_f(){
 
 }

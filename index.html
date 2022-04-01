@@ -12,6 +12,19 @@
     <script src="index.js"></script>
 </head>
 <body>
+    <div id="popup">
+        <div id="pw_list">
+            <div id="list_box">
+                <div class="list">
+                    <p>암호키 : </p>
+                    <p class="pw"></p>
+                </div>
+            </div>
+
+            <button id="close" onclick="close_f();">닫기</button>
+        </div>
+    </div>
+
     <p id="title">다중 문자 치환 암호화 : 쌍자치환</p>
 
     <form autocomplete="off">
@@ -74,13 +87,13 @@
                 <tr>
                     <td class="text">암호문</td>
                     <td class="input_text">
-                        <input type="text" id="cryptogram" name="cryptogram">
+                        <input type="text" id="cryptogram" name="cryptogram" placeholder="암호문">
                     </td>
                 </tr>
                 <tr>
                     <td class="text">복호문</td>
                     <td class="input_text">
-                        <input type="text" id="decrypted_text" name="decrypted_text">
+                        <input type="text" id="decrypted_text" name="decrypted_text" placeholder="복호문">
                     </td>
                 </tr>
             </table>

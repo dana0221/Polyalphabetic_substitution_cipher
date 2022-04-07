@@ -1,13 +1,18 @@
 // 불러오기
-function loading_f(){
-
-}
+$(function() {
+    $('#loading').click(function(){
+        $('#popup').show()
+    })
+})
 
 // 결과보기
 function result_f(){
 
 }
-// 팝업 창 닫기
-function close_f(){
 
-}
+// 팝업 창 닫기
+$(function(){
+    $('#close').click(function(){
+        $('#popup').hide()
+    })
+})

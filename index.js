@@ -47,7 +47,7 @@ function result_f(){
         }
 
         // 평문 공백 제거
-        let x1, x2, y1, y2, password = '', decrypted = plain_text
+        let x1, x2, y1, y2, password = '', decrypted = ''
         plain_text = plain_text.replace(/(\s*)/g, "")
 
 
@@ -59,8 +59,6 @@ function result_f(){
         if(plain_text.length % 2 != 0)
             plain_text += 'x'
 
-        console.log(plain_text)
-
         // 암호문 생성
         for(let i = 0; i < plain_text.length - 1; i += 2){
             x1 = password_plate.indexOf(plain_text[i]) / 5 | 0
@@ -69,12 +67,17 @@ function result_f(){
             x2 = password_plate.indexOf(plain_text[i + 1]) / 5 | 0
             y2 = password_plate.indexOf(plain_text[i + 1]) % 5
 
+            // 같은 행
             if(x1 == x2)
-                password += password_plate[x1 * 5 + (y1 + 1) % 5] + password_plate[x1 * 5 + (y2 + 1) % 5]
+                password += password_plate[x1 * 5 + (y1 + 1) % 5] + password_plate[x2 * 5 + (y2 + 1) % 5]
+
+            // 같은 열
             else if(y1 == y2)
                 password += password_plate[((x1 + 1) % 5) * 5 + y1] + password_plate[((x2 + 1) % 5) * 5 + y2]
+
+            // 대각선
             else
-                password += password_plate[x1 * 5 + y2] + password_plate[x2 * 5 + y1]
+                password += password_plate[x2 * 5 + y1] + password_plate[x1 * 5 + y2]
 
             password += ' '
         }
@@ -83,8 +86,19 @@ function result_f(){
         document.getElementById('cryptogram').value = password
 
         // 복호문 출력
+        for(let i = 0; i < plain_text.length; i++){
+            if(i % 2 == 0)
+                decrypted += ' '
+
+            decrypted += plain_text[i]
+        }
         document.getElementById('decrypted_text').value = decrypted
     }
+}
+
+// 저장하기
+function save_f(){
+
 }
 
 // 팝업 창 닫기

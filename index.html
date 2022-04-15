@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <p id="title">다중 문자 치환 암호화 : 쌍자치환</p>
+    <p id="title">다중 치환 암호화 : 쌍자치환</p>
 
     <form autocomplete="off">
         <div id="table">
@@ -87,22 +87,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text">암호문</td>
+                    <td class="text">결&nbsp;&nbsp;&nbsp;과</td>
                     <td class="input_text">
-                        <input type="text" id="cryptogram" name="cryptogram" placeholder="암호문">
+                        <input type="text" id="result" name="result" placeholder="결과">
                     </td>
                 </tr>
                 <tr>
-                    <td class="text">복호문</td>
-                    <td class="input_text">
-                        <input type="text" id="decrypted_text" name="decrypted_text" placeholder="복호문">
+                    <td colspan="2" id="result_btn">
+                        <button class="result" type="button" onclick="result_password();">암호화</button>
+                        <button class="result" type="button" onclick="result_decrypted();">복호화</button>
                     </td>
                 </tr>
             </table>
 
             <div id="button">
                 <button id="loading" type="button">불러오기</button>
-                <button id="result" type="button" onclick="result_f();">결과보기</button>
                 <button id="save" type="button" onclick="save_f();">저장하기</button>
                 <input id="reset" type="reset" value="초기화">
             </div>

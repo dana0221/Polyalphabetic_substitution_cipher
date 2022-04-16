@@ -19,8 +19,6 @@
 </head>
 <body>
     <script>
-        import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";
         const firebaseConfig = {
             apiKey: "AIzaSyD3miDJVkDy9aIDDyLd6cJkEuJghTvoAPA",
             authDomain: "encryption-fff08.firebaseapp.com",
@@ -31,16 +29,27 @@
             measurementId: "G-5B889J5LNP"
         };
 
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        firebase.initializeApp(firebaseConfig)
+    </script>
+
+    <script>
+        const db = firebase.firestore()
+
+        // 리스트 출력
+        db.collection('password').get().then((pw)=>{
+            pw.forEach((doc)=> {
+                console.log(doc.data())
+                var list = `<p>암호키 : ${doc.data().암호키}</p>`
+                $('.list').append(list)
+            })
+        })
     </script>
 
     <div id="popup">
         <div id="pw_list">
             <div id="list_box">
                 <div class="list">
-                    <p>암호키 : </p>
-                    <p class="pw"></p>
+
                 </div>
             </div>
 

@@ -147,11 +147,11 @@ function result_decrypted(){
 
             // 같은 행
             if(x1 == x2)
-                password += password_plate[x1 * 5 + (y1 + 1) % 5] + password_plate[x2 * 5 + (y2 + 1) % 5]
+                password += password_plate[x1 * 5 + (y1 + 4) % 5] + password_plate[x2 * 5 + (y2 + 4) % 5]
 
             // 같은 열
             else if(y1 == y2)
-                password += password_plate[((x1 - 1) % 5) * 5 + y1] + password_plate[((x2 - 1) % 5) * 5 + y2]
+                password += password_plate[((x1 + 4) % 5) * 5 + y1] + password_plate[((x2 + 4) % 5) * 5 + y2]
 
             // 대각선
             else

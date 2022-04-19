@@ -4,6 +4,12 @@
     font-family: 'Gowun Batang', 'regular';
 }
 
+a{
+    display:block;
+    text-decoration:none;
+    color:#333;
+}
+
 body{
     width:100%;
     height:100%;

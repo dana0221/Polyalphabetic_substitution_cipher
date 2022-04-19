@@ -38,9 +38,13 @@
         // 리스트 출력
         db.collection('password').get().then((pw)=>{
             pw.forEach((doc)=> {
-                console.log(doc.data())
-                var list = `<p>암호키 : ${doc.data().암호키}</p>`
-                $('.list').append(list)
+                let list = `
+                    <a href="#" onclick="show_password()">
+                        <div class="list">
+                                <p>암호키 : ${doc.data().암호키}</p>
+                        </div>
+                    </a>`
+                $('#list_box').append(list)
             })
         })
     </script>
@@ -48,9 +52,7 @@
     <div id="popup">
         <div id="pw_list">
             <div id="list_box">
-                <div class="list">
 
-                </div>
             </div>
 
             <button id="close">닫기</button>
@@ -132,7 +134,7 @@
 
             <div id="button">
                 <button id="loading" type="button">불러오기</button>
-                <button id="save" type="button" onclick="save_f();">저장하기</button>
+                <button id="save" type="button">저장하기</button>
                 <input id="reset" type="reset" value="초기화">
             </div>
         </div>

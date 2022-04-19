@@ -5,6 +5,8 @@ $(function() {
     })
 })
 
+const setPassword_plate = new Set()
+
 // 암호화
 function result_password(){
     let encryption_key = document.getElementById('encryption_key').value
@@ -14,10 +16,10 @@ function result_password(){
     plain_text = plain_text.toLowerCase()
 
     // 암호화를 위한 조건
-    if(encryption_key == '')
+    if(encryption_key === '')
         alert('암호키를 입력하세요')
 
-    if(plain_text == '')
+    if(plain_text === '')
         alert('평문을 입력하세요')
 
     // 암호키 중복 제거
@@ -43,7 +45,7 @@ function result_password(){
         const password_plate = Array.from(setPassword_plate)
 
         for(let i = 0; i < 25; i++){
-            if(password_plate[i] == 'q')
+            if(password_plate[i] === 'q')
                 document.getElementById('p' + (i + 1)).value = password_plate[i] + '/z'
             else
                 document.getElementById('p' + (i + 1)).value = password_plate[i]
@@ -71,11 +73,11 @@ function result_password(){
             y2 = password_plate.indexOf(plain_text[i + 1]) % 5
 
             // 같은 행
-            if(x1 == x2)
+            if(x1 === x2)
                 password += password_plate[x1 * 5 + (y1 + 1) % 5] + password_plate[x2 * 5 + (y2 + 1) % 5]
 
             // 같은 열
-            else if(y1 == y2)
+            else if(y1 === y2)
                 password += password_plate[((x1 + 1) % 5) * 5 + y1] + password_plate[((x2 + 1) % 5) * 5 + y2]
 
             // 대각선
@@ -98,16 +100,15 @@ function result_decrypted(){
     plain_text = plain_text.toLowerCase()
 
     // 암호화를 위한 조건
-    if(encryption_key == '')
+    if(encryption_key === '')
         alert('암호키를 입력하세요')
 
-    if(plain_text == '')
+    if(plain_text === '')
         alert('평문을 입력하세요')
 
     // 암호키 중복 제거
     else if(encryption_key != '' && plain_text != '') {
         const setEncryption_key = new Set()
-        const setPassword_plate = new Set()
 
         for(let i = 0; i < encryption_key.length; i++){
             setEncryption_key.add(encryption_key[i])
@@ -127,7 +128,7 @@ function result_decrypted(){
         const password_plate = Array.from(setPassword_plate)
 
         for(let i = 0; i < 25; i++){
-            if(password_plate[i] == 'q')
+            if(password_plate[i] === 'q')
                 document.getElementById('p' + (i + 1)).value = password_plate[i] + '/z'
             else
                 document.getElementById('p' + (i + 1)).value = password_plate[i]
@@ -146,11 +147,11 @@ function result_decrypted(){
             y2 = password_plate.indexOf(plain_text[i + 1]) % 5
 
             // 같은 행
-            if(x1 == x2)
+            if(x1 === x2)
                 password += password_plate[x1 * 5 + (y1 + 4) % 5] + password_plate[x2 * 5 + (y2 + 4) % 5]
 
             // 같은 열
-            else if(y1 == y2)
+            else if(y1 === y2)
                 password += password_plate[((x1 + 4) % 5) * 5 + y1] + password_plate[((x2 + 4) % 5) * 5 + y2]
 
             // 대각선
@@ -165,8 +166,46 @@ function result_decrypted(){
 }
 
 // 저장하기
-function save_f(){
+$(function(){
+    $('#save').click(function(){
+        // 저장하기 위한 조건
+        if(document.getElementById('encryption_key').value == '')
+            alert('암호키를 입력하세요')
 
+        if(document.getElementById('plain_text').value == '')
+            alert('평문을 입력하세요')
+
+        else{
+            const password = document.getElementById('encryption_key').value
+
+            db.collection('password').doc(password).set({"암호키":password, "암호판":setPassword_plate}).then(() => {
+                location.reload()
+            })
+
+            alert('저장되었습니다.')
+            location.reload()
+        }
+    })
+})
+
+// 선택한 암호키, 암호판 불러오기
+function show_password(){
+    let password = ''
+    let password_plate = Array.from(setPassword_plate)
+
+    db.collection('password').get().then((pw)=>{
+        pw.forEach((doc)=> {
+            password_plate = doc.data().암호판;
+            password = doc.data().암호키;
+            console.log(password, password_plate)
+        })
+    })
+
+    document.getElementById('encryption_key').value = password
+
+    for(let i = 0; i < 25; i++){
+        document.getElementById('p' + (i + 1)).value = password_plate[i]
+    }
 }
 
 // 팝업 창 닫기

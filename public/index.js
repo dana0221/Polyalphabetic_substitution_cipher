@@ -177,13 +177,15 @@ $(function(){
 
         else{
             const password = document.getElementById('encryption_key').value
+            const password_plate = Array.from(setPassword_plate)
 
-            db.collection('password').doc(password).set({"암호키":password, "암호판":setPassword_plate}).then(() => {
-                location.reload()
+            console.log(password, password_plate)
+
+            db.collection('password').doc(password).set({"암호키":password, "암호판":password_plate}).then(() => {
+                alert('저장되었습니다.')
+                // location.reload()
             })
 
-            alert('저장되었습니다.')
-            location.reload()
         }
     })
 })

@@ -182,10 +182,10 @@ $(function(){
             console.log(password, password_plate)
 
             db.collection('password').doc(password).set({"암호키":password, "암호판":password_plate}).then(() => {
-                alert('저장되었습니다.')
-                // location.reload()
+                location.reload()
             })
 
+            alert('저장되었습니다.')
         }
     })
 })
@@ -193,21 +193,24 @@ $(function(){
 // 선택한 암호키, 암호판 불러오기
 function show_password(){
     let password = ''
-    let password_plate = Array.from(setPassword_plate)
+    let password_plate = ''
 
     db.collection('password').get().then((pw)=>{
         pw.forEach((doc)=> {
             password_plate = doc.data().암호판;
             password = doc.data().암호키;
-            console.log(password, password_plate)
+
+            password_plate = Array.from(password_plate)
+            document.getElementById('encryption_key').value = password
+
+            for(let i = 0; i < 25; i++){
+                document.getElementById('p' + (i + 1)).value = password_plate[i]
+            }
         })
     })
 
-    document.getElementById('encryption_key').value = password
 
-    for(let i = 0; i < 25; i++){
-        document.getElementById('p' + (i + 1)).value = password_plate[i]
-    }
+
 }
 
 // 팝업 창 닫기

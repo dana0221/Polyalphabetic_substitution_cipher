@@ -209,8 +209,7 @@ function show_password(){
         })
     })
 
-
-
+    document.getElementById("popup").style.display = "none";
 }
 
 // 팝업 창 닫기

@@ -40,9 +40,11 @@ body{
         #list_box{
             width:400px;
             height:510px;
+            overflow:scroll;
+            overflow-x:hidden;
         }
             .list{
-                width:400px;
+                width:100%;
                 height:50px;
                 float:left;
                 border-bottom:1px solid #333;

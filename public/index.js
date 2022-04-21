@@ -5,12 +5,14 @@ $(function() {
     })
 })
 
-const setPassword_plate = new Set()
+let setPassword_plate = new Set()
 
 // 암호화
 function result_password(){
+    setPassword_plate = new Set()
     let encryption_key = document.getElementById('encryption_key').value
     let plain_text = document.getElementById('plain_text').value
+    console.log(encryption_key, plain_text)
 
     encryption_key = encryption_key.toLowerCase()
     plain_text = plain_text.toLowerCase()
@@ -22,7 +24,6 @@ function result_password(){
     if(plain_text === '')
         alert('평문을 입력하세요')
 
-    // 암호키 중복 제거
     else if(encryption_key != '' && plain_text != '') {
         const setEncryption_key = new Set()
 
@@ -54,7 +55,16 @@ function result_password(){
         let x1, x2, y1, y2, password = ''
         plain_text = plain_text.replace(/(\s*)/g, "")
 
-        // 복호문 생성
+
+        for(let i = 0; i < plain_text.length - 1; i += 2){
+            if(plain_text[i] === plain_text[i + 1])
+                plain_text = plain_text.slice(0, i + 1) + 'x' + plain_text.slice(i + 1)
+        }
+
+        if(plain_text.length % 2 != 0)
+            plain_text += 'x'
+
+        // 암호문 생성
         for(let i = 0; i < plain_text.length - 1; i += 2){
             x1 = password_plate.indexOf(plain_text[i]) / 5 | 0
             y1 = password_plate.indexOf(plain_text[i]) % 5
@@ -83,6 +93,7 @@ function result_password(){
 
 // 복호화
 function result_decrypted(){
+    setPassword_plate = new Set()
     let encryption_key = document.getElementById('encryption_key').value
     let plain_text = document.getElementById('plain_text').value
 
@@ -190,7 +201,10 @@ function show_password(password){
         password_plate = Array.from(password_plate)
 
         for(let i = 0; i < 25; i++){
-            document.getElementById('p' + (i + 1)).value = password_plate[i]
+            if(password_plate[i] === 'q')
+                document.getElementById('p' + (i + 1)).value = 'q/z'
+            else
+                document.getElementById('p' + (i + 1)).value = password_plate[i]
         }
     })
 

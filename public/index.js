@@ -25,6 +25,7 @@ function result_password(){
     // 암호키 중복 제거
     else if(encryption_key != '' && plain_text != '') {
         const setEncryption_key = new Set()
+        const setPassword_plate = new Set()
 
         for(let i = 0; i < encryption_key.length; i++){
             setEncryption_key.add(encryption_key[i])
@@ -54,7 +55,16 @@ function result_password(){
         let x1, x2, y1, y2, password = ''
         plain_text = plain_text.replace(/(\s*)/g, "")
 
-        // 복호문 생성
+
+        for(let i = 0; i < plain_text.length - 1; i += 2){
+            if(plain_text[i] === plain_text[i + 1])
+                plain_text = plain_text.slice(0, i + 1) + 'x' + plain_text.slice(i + 1)
+        }
+
+        if(plain_text.length % 2 != 0)
+            plain_text += 'x'
+
+        // 암호문 생성
         for(let i = 0; i < plain_text.length - 1; i += 2){
             x1 = password_plate.indexOf(plain_text[i]) / 5 | 0
             y1 = password_plate.indexOf(plain_text[i]) % 5

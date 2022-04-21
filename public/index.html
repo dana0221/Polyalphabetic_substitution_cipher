@@ -39,11 +39,9 @@
         db.collection('password').get().then((pw)=>{
             pw.forEach((doc)=> {
                 let list = `
-                    <a href="#" onclick="show_password()">
-                        <div class="list">
-                                <p>암호키 : ${doc.data().암호키}</p>
-                        </div>
-                    </a>`
+                    <div class="list" id="${doc.data().암호키}" onclick="show_password(${doc.data().암호키})">
+                            <p>암호키 : ${doc.data().암호키}</p>
+                    </div>`
                 $('#list_box').append(list)
             })
         })

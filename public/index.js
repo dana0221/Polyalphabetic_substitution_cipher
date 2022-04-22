@@ -163,15 +163,17 @@ function result_decrypted(){
             // 대각선
             else
                 password += password_plate[x2 * 5 + y1] + password_plate[x1 * 5 + y2]
+
+            password += ' '
         }
 
-        for(let i = 0; i < password.length; i++){
-            if(i != password.length - 1 && password[i][1] === 'x' && password[i][0] === password[i + 1][0]){
-                decrypted += password[i][0]
-            }else{
-                decrypted += password[i][0] + "" + password[i][1]
-            }
-        }
+        // for(let i = 0; i < password.length; i++){
+        //     if(i != password.length - 1 && password[i][1] === 'x' && password[i][0] === password[i + 1][0]){
+        //         decrypted += password[i][0]
+        //     }else {
+        //         decrypted += password[i][0] + "" + password[i][1]
+        //     }
+        // }
 
         document.getElementById('result').value = password
     }

@@ -6,13 +6,14 @@ $(function() {
 })
 
 let setPassword_plate = new Set()
+let decrypted = ''
 
 // 암호화
 function result_password(){
     setPassword_plate = new Set()
     let encryption_key = document.getElementById('encryption_key').value
     let plain_text = document.getElementById('plain_text').value
-    console.log(encryption_key, plain_text)
+    decrypted = plain_text
 
     encryption_key = encryption_key.toLowerCase()
     plain_text = plain_text.toLowerCase()
@@ -56,10 +57,15 @@ function result_password(){
         plain_text = plain_text.replace(/(\s*)/g, "")
 
 
+
         for(let i = 0; i < plain_text.length - 1; i += 2){
             if(plain_text[i] === plain_text[i + 1])
                 plain_text = plain_text.slice(0, i + 1) + 'x' + plain_text.slice(i + 1)
         }
+
+        plain_text = plain_text.replace('z', 'q')
+
+        console.log(plain_text)
 
         if(plain_text.length % 2 != 0)
             plain_text += 'x'
@@ -136,7 +142,7 @@ function result_decrypted(){
         }
 
         // 평문 공백 제거
-        let x1, x2, y1, y2, password = ''
+        let x1, x2, y1, y2, password = '', decrypted = ''
         plain_text = plain_text.replace(/(\s*)/g, "")
 
         // 복호문 생성
@@ -158,8 +164,14 @@ function result_decrypted(){
             // 대각선
             else
                 password += password_plate[x2 * 5 + y1] + password_plate[x1 * 5 + y2]
+        }
 
-            password += ' '
+        for(let i = 0; i < password.length; i++){
+            if(i != password.length - 1 && password[i][1] === 'x' && password[i][0] === password[i + 1][0]){
+                decrypted += password[i][0]
+            }else{
+                decrypted += password[i][0] + "" + password[i][1]
+            }
         }
 
         document.getElementById('result').value = password

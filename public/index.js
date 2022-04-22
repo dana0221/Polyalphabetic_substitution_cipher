@@ -63,9 +63,8 @@ function result_password(){
                 plain_text = plain_text.slice(0, i + 1) + 'x' + plain_text.slice(i + 1)
         }
 
+        // x -> q
         plain_text = plain_text.replace('z', 'q')
-
-        console.log(plain_text)
 
         if(plain_text.length % 2 != 0)
             plain_text += 'x'
